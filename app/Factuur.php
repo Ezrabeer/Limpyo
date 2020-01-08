@@ -8,5 +8,7 @@ class Factuur extends Model
 {
     protected $table = 'Facturen';
 
+    public $timestamps = false;
+
     protected $guarded = [];
 }

@@ -8,6 +8,8 @@ class Klant extends Model
 {
     protected $table = 'Klanten';
 
+    public $timestamps = false;
+
     protected $guarded = [];
 
 }

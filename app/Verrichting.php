@@ -10,6 +10,8 @@ class Verrichting extends Model
 
     protected $guarded = [];
 
+    public $timestamps = false;
+
     public function klanten() {
         return $this->hasMany('\App\Klant', 'ID', 'Klant');
     }

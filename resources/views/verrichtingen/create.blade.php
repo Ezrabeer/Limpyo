@@ -2,7 +2,8 @@
 
 @section('content')
     <div class='container'>
-        <form>
+        <form method="post" action="{{ route('verrichting.store') }}">
+            @csrf
             <div class='form-group'>
                 <label for='klant-dropdown'>Kies klant</label>
                 <select name='klant' class="form-control" id='klant-dropdown'>

@@ -2,25 +2,22 @@
 
 @section('content')
     <div class='container'>
+        @include('layouts.messages')
         <h1>Alle verrichtingen</h1>
         <table class="table table-hover mt-3">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Klant</th>
+                <th scope="col">Organisatie</th>
                 <th scope="col">Datum</th>
                 <th scope="col">Minuten</th>
-                <th scope="col">Factuur</th>
             </tr>
             </thead>
             <tbody>
             @foreach($verrichtingen as $verrichting)
                 <tr>
-                    <th scope="row">{{ $verrichting->ID }}</th>
-                    <td>{{ \App\Klant::find($verrichting->Klant)->Voornaam }}</td>
+                    <td>{{ \App\Klant::find($verrichting->Klant)->Organisatie }}</td>
                     <td>{{ $verrichting->Datum }}</td>
                     <td>{{ $verrichting->Minuten }}</td>
-                    <td>0</td>
                 </tr>
             @endforeach
             </tbody>

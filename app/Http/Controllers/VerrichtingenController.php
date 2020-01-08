@@ -31,7 +31,7 @@ class VerrichtingenController extends Controller
      */
     public function index()
     {
-        $verrichtingen = $this->verrichtingen->where('Factuur', null)->paginate(10);
+        $verrichtingen = $this->verrichtingen->where('Factuur', 0)->paginate(10);
 
         return view('verrichtingen.index', [
             'verrichtingen' => $verrichtingen,
@@ -60,7 +60,13 @@ class VerrichtingenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->verrichtingen->Klant = $request->get('klant');
+        $this->verrichtingen->Datum = $request->get('datum');
+        $this->verrichtingen->Minuten = $request->get('minuten');
+        $this->verrichtingen->Factuur = 0;
+        $this->verrichtingen->save();
+
+        return redirect()->route('verrichting.index')->with('success', 'Verrichting toegevoegd.');
     }
 
     /**
